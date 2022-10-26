@@ -1,12 +1,20 @@
 import './App.css'
 
-function App({ test, test2 }) {
-    return (
-        <>
-            <div className='App'>Expenses Tracker</div>
-            <h1 class='text-3xl font-bold underline'>Hello world!</h1>
-        </>
-    )
+function App() {
+  return (
+    <div className='App'>
+      <div className='container mx-auto max-w-6xl text-center drop-shadow-lg text-gray-800'>
+        <h1 className=' text-4xl py-8 mb-10 bg-slate-800 text-white rounded'>
+          Expenses Tracker
+        </h1>
+        {/* grid columns */}
+        <div className='grid md:grid-cols-2 gap-4'>
+          {/* chart component */}
+          {/* form component */}
+        </div>
+      </div>
+    </div>
+  )
 }
 
 export default App
