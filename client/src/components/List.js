@@ -1,5 +1,4 @@
 import React from 'react'
-import 'boxicons'
 
 const listCollection = [
   {
@@ -25,13 +24,8 @@ const TransactionsHistoryJSX = ({ name, color }) => (
       className='item flex justify-center bg-gray-50 py-2 rounded-r'
       style={{ borderRight: `8px solid ${color}` }}
     >
-      <button className='px-3'>
-        <box-icon
-          name='trash-alt'
-          type='solid'
-          size='15px'
-          color
-        ></box-icon>
+      <button className='px-3 bg-slate-600 rounded-lg text-white'>
+        Delete
       </button>
       <span className='block w-full'>{name}</span>
     </div>
