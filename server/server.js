@@ -8,7 +8,7 @@ const app = express() // Creating the instance of express HTTP server with name 
 // USE MIDDLEWARE
 app.use(cors()) // avoiding cors
 app.use(express.json()) // using json data when needed
-dotenv.config() // accessing the env variables
+dotenv.config({ path: '../.env' }) // accessing the env variables
 
 const PORT = process.env.PORT
 
