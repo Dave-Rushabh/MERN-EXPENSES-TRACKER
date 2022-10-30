@@ -1,4 +1,5 @@
 import './App.css'
+import Form from './components/Form'
 import Graph from './components/Graph'
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
         {/* grid columns */}
         <div className='grid md:grid-cols-2 gap-4'>
           <Graph />
-          {/* form component */}
+          <Form />
         </div>
       </div>
     </div>
