@@ -2,7 +2,7 @@ const express = require('express')
 const cors = require('cors')
 const dotenv = require('dotenv')
 const router = require('./routes/route')
-const db = require('./db/config')
+const ConnetToTheDB = require('./db/config')
 const app = express() // Creating the instance of express HTTP server with name : "app"
 
 // USE MIDDLEWARE
@@ -13,7 +13,7 @@ dotenv.config({ path: '../.env' }) // accessing the env variables
 const PORT = process.env.PORT
 
 // mongodb connection
-db()
+ConnetToTheDB()
 
 // LISTEN TO THE ROUTES
 app.use('/api', router)
