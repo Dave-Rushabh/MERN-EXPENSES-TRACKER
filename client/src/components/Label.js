@@ -1,27 +1,13 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-const labelsCollection = [
-  {
-    type: 'Savings',
-    color: 'rgb(255, 99, 132)',
-    percent: '45%',
-    id: 1,
-  },
-  {
-    type: 'Investments',
-    color: 'rgb(54, 162, 235)',
-    percent: '20%',
-    id: 2,
-  },
-  {
-    type: 'Expenses',
-    color: 'rgb(255, 205, 86)',
-    percent: '35%',
-    id: 3,
-  },
-]
+import { default as api } from '../redux/apiSlice'
+import { addCategoriesToStore, addTransactionsToStore } from '../redux/reduxer'
 
-const LableComponentJSX = ({ type, color, percent }) => (
+// const calculateShareFromTransactionType
+
+// TODO : calculate % later, currently set as 0 bu default
+const LableComponentJSX = ({ type, color = 'tomato', percent = '0%' }) => (
   <div className='labels flex justify-between'>
     <div className='flex gap-2'>
       <div
@@ -35,14 +21,35 @@ const LableComponentJSX = ({ type, color, percent }) => (
 )
 
 const Label = () => {
+  const dispatch = useDispatch()
+  const {
+    categories: categoriesFromStore,
+    transactions: transactionsFromStore,
+  } = useSelector(state => state.expensesReducer)
+
+  console.log({ categoriesFromStore, transactionsFromStore })
+
+  const { data: categories } = api.useGetCategoriesQuery()
+  const { data: transactions } = api.useGetTransactionsQuery()
+
+  useEffect(() => {
+    if (categories) {
+      dispatch(addCategoriesToStore(categories))
+    }
+  }, [categories, dispatch])
+
+  useEffect(() => {
+    if (transactions) {
+      dispatch(addTransactionsToStore(transactions))
+    }
+  }, [transactions, dispatch])
+
   return (
     <>
-      {labelsCollection.map(label => (
+      {transactionsFromStore.map(label => (
         <LableComponentJSX
-          key={label.id}
+          key={Math.random()} // TODO : apply proper key later
           type={label.type}
-          color={label.color}
-          percent={label.percent}
         />
       ))}
     </>

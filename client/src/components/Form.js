@@ -36,8 +36,8 @@ const Form = () => {
                 Select From Below
               </option>
               <option value='Savings'>Savings</option>
-              <option value='Investment'>Investment</option>
-              <option value='Expense'>Expense</option>
+              <option value='Investments'>Investments</option>
+              <option value='Expenses'>Expenses</option>
             </select>
             <div className='input-group'>
               <input
